@@ -14,7 +14,7 @@ const getUsers = () => {
                     const surname = people.name.last
                     const city = people.location.city
                     const country = people.location.country
-                    const image = people.picture.medium
+                    const image = people.picture.thumbnail
                     const id= people.id.value
                     return { names, surname, city, country, image, id }
                 })
