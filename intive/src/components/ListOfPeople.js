@@ -13,10 +13,10 @@ const ListOfPeople = () => {
     return (
         <React.Fragment>
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-6 g-7">
+                <div class="row row-cols-1 row-cols-md-6 g-7 d-flex justify-items-stretch">
                     {
                         users.map(({ id, image, names, surname, city, country, cell, email}) =>
-                            <div class="col">
+                            <div class="col d-flex align-items-stretch">
                                 <People
                                     key={id}
                                     image={image}
