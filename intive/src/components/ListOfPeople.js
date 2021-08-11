@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import People from './People'
 import getUsers from '../services/getUsers.js'
+import './ListOfPeople.css'
 
 const ListOfPeople = () => {
     const [users, setusers] = useState([])
-    console.log(users)
 
     useEffect(() => {
         getUsers().then(users => setusers(users))
     }, [])
 
-
     return (
-        <div class="container d-flex justify-content-center align-items-center h-100">
-            <div class="row row-cols-4 g-5">
-                <div class="col">
+        <React.Fragment>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-6 g-7">
                     {
-                        users.map(({ id, image, names, surname, city, country }) =>
-                            <People
-                                key={id}
-                                image={image}
-                                names={names}
-                                surname={surname}
-                                city={city}
-                                country={country}
-                            />
+                        users.map(({ id, image, names, surname, city, country, cell, email}) =>
+                            <div class="col">
+                                <People
+                                    key={id}
+                                    image={image}
+                                    names={names}
+                                    surname={surname}
+                                    city={city}
+                                    country={country}
+                                    cell={cell}
+                                    email={email}
+                                />
+                            </div>
                         )
                     }
                 </div>
             </div>
-        </div>
+
+        </React.Fragment>
     )
 }
 
